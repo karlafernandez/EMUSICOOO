@@ -29,7 +29,41 @@ public class BDHandler {
     }
     
     
-    
+    public void QueryBuscar(String cadena){
+    	try{
+    		m_data = new Vector<Vector<String>>();
+	    	Statement stmt = m_conn.createStatement();
+	    	ResultSet rs;
+	    	
+	    	//String query = "select * from \"Cancion\" where let_can like '%vivir%'; ";
+	    	String query = "select * from \"Cancion\" where let_can ilike '%"+ cadena + "%'; ";
+	    	rs = stmt.executeQuery(query);
+	    	m_result_metada = rs.getMetaData();
+	    	
+	    	while(rs.next()){
+	    		Vector<String> temp = new Vector<String>();
+	    		System.out.println(rs.getString("id_can") + " " + rs.getString("nom_can")); 
+	    		temp.add(rs.getString("id_can"));
+	    		temp.add(rs.getString("nom_can")); 
+	    		//Para obtener data de cada columna
+    			//for(int i = 1; i <= m_result_metada.getColumnCount(); i++){
+    				//temp.add(rs.getString(i));            		
+    			//}
+	    		m_data.add(temp); 
+	    	}
+			
+	    	
+	    	stmt.execute("END");
+	    	stmt.close();
+	    	//m_conn.close();
+    	}
+    	catch( Exception e ){
+    		//Por si ocurre un error
+    		System.err.println("El porque del cascar SQL: " + e.getMessage());
+            e.printStackTrace();
+    	}
+    	
+    }
     
     public void QueryFunction(String function_name){
     	try{

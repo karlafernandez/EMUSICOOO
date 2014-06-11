@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import Model.Login;
 
@@ -46,11 +47,22 @@ public class CtrlLogin extends HttpServlet {
 		// TODO Auto-generated method stub
 		PrintWriter out = response.getWriter();
 		//out.println("¡Bienvenido al mundo de los servlets!");
+		m_login.Authenticate(request.getParameter("email"), request.getParameter("password"));
 		
-		if(m_login.Authenticate(request.getParameter("email"), request.getParameter("password")))
-			out.println("<h1>BIENVENIDO "+ m_login.m_nom_user +"</h1>\n");
-		else
-			out.println("<h1>MAL :(</h1>\n");
+		if(m_login.m_id_user != -1){
+			//out.println("<h1>BIENVENIDO "+ m_login.m_nom_user +"</h1>\n");
+			
+			//manejamos las sesiones
+			HttpSession session = request.getSession(true);
+			session.setAttribute("id_user", m_login.m_id_user); 
+			session.setAttribute("nom_user", m_login.m_nom_user); 
+			
+			
+			//System.out.print(session.getAttribute("userId")); 
+			
+			request.getRequestDispatcher("main.jsp").forward(request, response);
+		}else
+			request.getRequestDispatcher("ErrorLogin.jsp").forward(request, response);
 		
 		
 		

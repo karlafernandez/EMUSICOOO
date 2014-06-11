@@ -1,15 +1,21 @@
-<!doctype html>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+    
+
+<%@page import="Model.Cancion" %>
+    
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-    <meta charset="utf8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>EMusicoOo-Elian-Enrique</title>
-    <link rel="stylesheet" href="css/style.css" />
-    <script src="js/jquery.js"></script>
-    <script src="js/jquery-ui.min.js"></script>
-    <script src="js/login.js"></script>
-    
-    <script type="text/javascript">
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<link rel="stylesheet" href="css/style.css" type="text/css" media="screen"/>
+    	<link rel="stylesheet" href="css/skin.css" type="text/css" media="screen"/>
+    	<link rel="stylesheet" href="css/style2.css" type="text/css" media="screen"/>
+<title>EMusicoOo-Elian-Enrique</title>
+
+<script src="js/jquery.js"></script>
+<script src="js/jquery-ui.min.js"></script>
+ <script type="text/javascript">
     
 	    $(document).ready(function() {
 	    	 
@@ -20,6 +26,9 @@
 	        
 	        //checks for the button click event
 	        $("#btnRegistrarUsuario").click(function(e){
+	        	
+	        	//alert("btn");
+	        	
 	        	//get the form data and then serialize that
                 dataString = $("#RegisterUserForm").serialize();
                 
@@ -29,11 +38,19 @@
                 //var pass = $("input#password").val();     
                 //dataString = "name=" + name;
                 
+                //alert($("select#cmbArtistas").val());
+                
+                var nombre = $("input#nom_user").val(); 
+                var mensaje = $("textarea#mensaje").val(); 
+               
+                
+                dataString = "nom_user=" + nombre + "&mensaje=" + mensaje + "&accion=2";
+                
 				//make the AJAX request, dataType is set to json
                 //meaning we are expecting JSON data in response from the server
                 $.ajax({
                     type: "POST",
-                    url: "CtrlRegisterUser",
+                    url: "CtrlAgregarAmigo",
                     data: dataString,
                     dataType: "json",
                     
@@ -81,71 +98,45 @@
 	    });
     
     </script>
-    
-    
-	
+
 </head>
 <body>
-    <div id="bar">
-        <div id="container">
-            <!-- Login Starts Here -->
-            <div id="loginContainer">
-            
-            	
-            
-                <a href="#" id="loginButton"><span>Login</span><em></em></a>
-                <div style="clear:both"></div>
-                <div id="loginBox">                
-                    <form id="loginForm" action = "CtrlLogin" method="post">
-                        <fieldset id="body">
-                            <fieldset>
-                                <label for="email">Email Address</label>
-                                <input type="text" name="email" id="email" />
-                            </fieldset>
-                            <fieldset>
-                                <label for="password">Password</label>
-                                <input type="password" name="password" id="password" />
-                            </fieldset>
-                            <input  type="submit" id="login" value="Sign in" />
-                            <label for="checkbox"><input type="checkbox" id="checkbox" />Remember me</label>
-                        </fieldset>
-                        <span><a href="#">Forgot your password?</a></span>
-                    </form>
-                </div>
-            </div>
-            <!-- Login Ends Here -->
-        </div>
-    </div>
-    
-    
-    <div style="position: relative; width: 100%; ">
-	    <div style="position: absolute; left: 0; width: 60%; ">
-	        <div id="imagebg">
-	   		</div>
-	    </div>
-	    <div style="position: absolute; right: 0; width: 40%; ">
+
+<center><br><br>	
+
+<%
+             String nom_amigo = (String)request.getAttribute("NomAmigo");
+
+%>       
+
+<div style="position: relative; width: 100%; ">
 	    
-	    	<!-- Login Starts Here -->
-	                              
-	                    <form id="RegisterUserForm">
+	        <center>       	
+	        
+	      		<form id="RegisterUserForm">
 	                        <fieldset id="body">
 	                            <fieldset>
 	                            	
-	                            	<div id="logo">
-	   								</div>
-	                            
-	                            	<h1>REGISTRATE</h1>
-	                            	<label for="name">Nombre</label>
-	                                <input type="text" name="name" id="name" />
+	                            	
+	                            	<font color="black" size="5" >AGREGAR AMIGO</font> 
+	                            	<br><br>
+	                            	
+	                                <input type="text" name="nom_user" id="nom_user" value="<%=nom_amigo %>" />
+	                                <br><br>
 	                                
-	                                <label for="email">Email</label>
-	                                <input type="text" name="email" id="email" />
+	                                
+	                               <label for="name">Mensaje</label>
+	                               
+	                               <TEXTAREA name="mensaje" id="mensaje" rows="8" cols="50" placeholder="mensaje">
+	                               </TEXTAREA>
+	                                <br><br>
+	                               	                                
+	                                	                            
+	                            <fieldset>
 	                            
-	                                <label for="password">Password</label>
-	                                <input type="password" name="password" id="password" />
+	                            <input  type="submit" id="btnRegistrarUsuario"  value="Agregar" />
 	                            
-	                            
-	                            <input  type="submit" id="btnRegistrarUsuario"  value="Registrar" />
+	                            </fieldset>
 	                            
 	                            <div id="anotherSection">
 							        <fieldset>
@@ -157,13 +148,17 @@
 	                        </fieldset>
 	                        
 	                    </form>
-	               
-	            
-	            <!-- Login Ends Here -->
+                
+	        </center>
 	    
 	    
-	    	
-	    </div>
-	</div>
+</div>    
+
+
+	
+			
+
+		
+		
 </body>
 </html>

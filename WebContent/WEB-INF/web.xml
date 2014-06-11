@@ -3,15 +3,14 @@
   <display-name>EMUSICOOO</display-name>
   <servlet>
     <description></description>
-    <display-name>CtrlLogin</display-name>
-    <servlet-name>CtrlLogin</servlet-name>
-    <servlet-class>Controllers.CtrlLogin</servlet-class>
+    <display-name>CtrlEMUSICOOO</display-name>
+    <servlet-name>CtrlEMUSICOOO</servlet-name>
+    <servlet-class>Controllers.CtrlEMUSICOOO</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>CtrlLogin</servlet-name>
-    <url-pattern>/Login/CtrlLogin/*</url-pattern>
+    <servlet-name>CtrlEMUSICOOO</servlet-name>
+    <url-pattern>/EMUSICOOO/CtrlEMUSICOOO/*</url-pattern>
   </servlet-mapping>
-  
   <servlet>
     <description></description>
     <display-name>CtrlRegisterUser</display-name>
@@ -22,5 +21,64 @@
     <servlet-name>CtrlRegisterUser</servlet-name>
     <url-pattern>/EMUSICOOO/CtrlRegisterUser/*</url-pattern>
   </servlet-mapping>
-  
+  <servlet>
+    <description></description>
+    <display-name>CtrlBuscar</display-name>
+    <servlet-name>CtrlBuscar</servlet-name>
+    <servlet-class>Controllers.CtrlBuscar</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CtrlBuscar</servlet-name>
+    <url-pattern>/EMUSICOOO/CtrlBuscar/*</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>CtrlDetalleCancion</display-name>
+    <servlet-name>CtrlDetalleCancion</servlet-name>
+    <servlet-class>Controllers.CtrlDetalleCancion</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CtrlDetalleCancion</servlet-name>
+    <url-pattern>/EMUSICOOO/CtrlDetalleCancion/*</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>CtrlAgregarCancion</display-name>
+    <servlet-name>CtrlAgregarCancion</servlet-name>
+    <servlet-class>Controllers.CtrlAgregarCancion</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CtrlAgregarCancion</servlet-name>
+    <url-pattern>/EMUSICOOO/CtrlAgregarCancion/*</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>CtrlListarAmigo</display-name>
+    <servlet-name>CtrlListarAmigo</servlet-name>
+    <servlet-class>Controllers.CtrlListarAmigo</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CtrlListarAmigo</servlet-name>
+    <url-pattern>/EMUSICOOO/CtrlListarAmigo/*</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>CtrlBuscarAmigo</display-name>
+    <servlet-name>CtrlBuscarAmigo</servlet-name>
+    <servlet-class>Controllers.CtrlBuscarAmigo</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CtrlBuscarAmigo</servlet-name>
+    <url-pattern>/EMUSICOOO/CtrlBuscarAmigo/*</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>CtrlAgregarAmigo</display-name>
+    <servlet-name>CtrlAgregarAmigo</servlet-name>
+    <servlet-class>Controllers.CtrlAgregarAmigo</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CtrlAgregarAmigo</servlet-name>
+    <url-pattern>/EMUSICOOO/CtrlAgregarAmigo/*</url-pattern>
+  </servlet-mapping>
 </web-app>
