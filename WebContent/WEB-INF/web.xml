@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
-  <display-name>Login</display-name>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
+  <display-name>EMUSICOOO</display-name>
   <servlet>
     <description></description>
-    <display-name>CtrlLogin</display-name>
-    <servlet-name>CtrlLogin</servlet-name>
-    <servlet-class>Controllers.CtrlLogin</servlet-class>
+    <display-name>CtrlEMUSICOOO</display-name>
+    <servlet-name>CtrlEMUSICOOO</servlet-name>
+    <servlet-class>Controllers.CtrlEMUSICOOO</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>CtrlLogin</servlet-name>
-    <url-pattern>/Login/CtrlLogin/*</url-pattern>
+    <servlet-name>CtrlEMUSICOOO</servlet-name>
+    <url-pattern>/EMUSICOOO/CtrlEMUSICOOO/*</url-pattern>
   </servlet-mapping>
   <servlet>
     <description></description>
@@ -19,7 +19,7 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>CtrlRegisterUser</servlet-name>
-    <url-pattern>/Login/CtrlRegisterUser/*</url-pattern>
+    <url-pattern>/EMUSICOOO/CtrlRegisterUser/*</url-pattern>
   </servlet-mapping>
   <servlet>
     <description></description>
@@ -29,7 +29,7 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>CtrlBuscar</servlet-name>
-    <url-pattern>/Login/CtrlBuscar/*</url-pattern>
+    <url-pattern>/EMUSICOOO/CtrlBuscar/*</url-pattern>
   </servlet-mapping>
   <servlet>
     <description></description>
@@ -39,7 +39,7 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>CtrlDetalleCancion</servlet-name>
-    <url-pattern>/Login/CtrlDetalleCancion/*</url-pattern>
+    <url-pattern>/EMUSICOOO/CtrlDetalleCancion/*</url-pattern>
   </servlet-mapping>
   <servlet>
     <description></description>
@@ -49,7 +49,7 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>CtrlAgregarCancion</servlet-name>
-    <url-pattern>/Login/CtrlAgregarCancion/*</url-pattern>
+    <url-pattern>/EMUSICOOO/CtrlAgregarCancion/*</url-pattern>
   </servlet-mapping>
   <servlet>
     <description></description>
@@ -59,7 +59,7 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>CtrlListarAmigo</servlet-name>
-    <url-pattern>/Login/CtrlListarAmigo/*</url-pattern>
+    <url-pattern>/EMUSICOOO/CtrlListarAmigo/*</url-pattern>
   </servlet-mapping>
   <servlet>
     <description></description>
@@ -69,7 +69,7 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>CtrlBuscarAmigo</servlet-name>
-    <url-pattern>/Login/CtrlBuscarAmigo/*</url-pattern>
+    <url-pattern>/EMUSICOOO/CtrlBuscarAmigo/*</url-pattern>
   </servlet-mapping>
   <servlet>
     <description></description>
@@ -79,16 +79,6 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>CtrlAgregarAmigo</servlet-name>
-    <url-pattern>/Login/CtrlAgregarAmigo/*</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <description></description>
-    <display-name>CtrlVerLetra</display-name>
-    <servlet-name>CtrlVerLetra</servlet-name>
-    <servlet-class>Controllers.CtrlVerLetra</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>CtrlVerLetra</servlet-name>
-    <url-pattern>/Login/CtrlVerLetra/*</url-pattern>
+    <url-pattern>/EMUSICOOO/CtrlAgregarAmigo/*</url-pattern>
   </servlet-mapping>
 </web-app>

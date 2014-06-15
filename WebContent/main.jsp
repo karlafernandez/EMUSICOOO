@@ -370,7 +370,13 @@
 				  <ul class="sf-menu">
 				        <li class="current"><a href="main.jsp">Perfil</a></li>
 				        <li><a href="AgregarCancion.jsp">Agregar</a></li>
-				        <li class="sub-menu"><a href="CtrlVerLetra">Letras</a>
+				        <li class="sub-menu"><a href="artists.html">Letras</a>
+				        	<ul>
+				                <li><a href="main.jsp">Por Artistas</a></li>
+				               <li><a href="main.jsp">Por Categorías</a></li>
+				                <li class="last3 sub-menu"><a href="main.jsp">Artists 03</a>
+				                </li>
+				            </ul>
 				        </li>
 				        <li><a href="Amigos.jsp">Amigos</a></li>
 				    </ul>
@@ -379,9 +385,9 @@
 				<div class="soc-icons">
 				<ul>
 					<li><a href="index.jsp">Salir&nbsp;</a></li>
-					<li><a href="https://www.facebook.com"><img src="images/facebook.png" alt=""></a></li>
-					<li><a href="https://www.twitter.com"><img src="images/twitter.png" alt=""></a></li>
-				</ul>
+					<li><a href=""><img src="images/facebook.png" alt=""></a></li>
+					<li><a href=""><img src="images/twitter.png" alt=""></a></li>
+			    	<li><a href=""><img src="images/rss.png" alt=""></a></li>
 				</ul>
 			</div>
 			<div class="clear"></div>

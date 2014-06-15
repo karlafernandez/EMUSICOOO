@@ -180,25 +180,6 @@ input:focus {
 
 
 
-#CancionesForm {
-    width:700px; 
-    border:1px solid #899caa;
-    border-radius:3px 3px 3px 3px;
-    -moz-border-radius:3px 3px 3px 3px;
-    margin-top:10px;
-    background:#d2e0ea;
-    padding:6px;
-}
-
-#VideosForm {
-    border:1px solid #899caa;
-    border-radius:3px 3px 3px 3px;
-    -moz-border-radius:3px 3px 3px 3px;
-    margin-top:10px;
-    background:#d2e0ea;
-    padding:6px;
-}
-
 
 #RegisterUserForm {
     width:480px; 
@@ -209,6 +190,7 @@ input:focus {
     background:#d2e0ea;
     padding:6px;
 }
+
 #RegisterUserForm fieldset {
     margin:5px 5px 5px 5px;
     display:block;
