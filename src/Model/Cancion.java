@@ -17,9 +17,72 @@ public class Cancion extends BDHandler{
 	public int m_id_artista;
 	public int m_id_categoria;
 	
+	public Vector<Cancion> listaCanciones;
+	
 	public Cancion(){
 		super();
 	}
+	
+	public void ListarCanciones(){
+		
+		listaCanciones = new Vector<Cancion>();
+		
+		try{
+			 //Vector<String> data = new  Vector<String>();
+   		
+   		this.m_conn.setAutoCommit(false);
+   		this.m_proc = null;
+   		this.m_proc = m_conn.prepareCall("{ call fx_listar_canciones(?) }");
+   		
+   		//seteamos los parametros, el primer parametro es po defecto el cursor
+   		this.m_proc.setNull(1, Types.OTHER);
+   		this.m_proc.registerOutParameter(1, Types.OTHER);
+   		
+   		this.m_proc.execute();
+   		
+   		//para el caso de nuestro cursosr, solo tenemos uno en nuestra funcion
+   		this.m_result = null;
+   		this.m_result = (ResultSet) m_proc.getObject(1);
+   		this.m_result_metada = m_result.getMetaData();
+   		Cancion can;
+   		
+   		/*if (m_result.last()) { //Solo cuando resulset es scrollable
+   		  rowcounts = m_result.getRow();
+   		  m_result.beforeFirst(); // not rs.first() because the rs.next() below will move on, missing the first element
+   		}*/
+   		if(!m_result.next()){
+   			listaCanciones = null;
+   		}
+   		while (m_result.next()) {
+   			can = new Cancion();
+   			//data.add(m_result.getString("nom_can"));
+   			//data.add(m_result.getString("let_can"));
+   			//data.add(m_result.getString("url_can"));   
+   			//data.add(m_result.getString("nom_art"));   
+   			//data.add(m_result.getString("nom_cat")); 
+   			can.m_identificador		= m_result.getInt("id_can");
+   			can.m_nombre 			= m_result.getString("nom_can");
+   			can.m_letra 			= m_result.getString("let_can");
+   			can.m_artista 			= m_result.getString("nom_art");
+   			can.m_categoria 		= m_result.getString("nom_cat");
+   			
+   			listaCanciones.add(can);
+   		}
+   		this.m_result.close();
+   		
+   		this.m_conn.commit();
+		this.m_conn.setAutoCommit(true);
+   		
+   		this.m_proc.close();    		    		
+			
+		}catch (Exception e) {
+           System.err.println("El porque del cascar SQL: " + e.getMessage());
+           e.printStackTrace();
+       }
+		
+		
+	}
+	
 	
 	public void ListarDetalleCancion(int id_can){
 		

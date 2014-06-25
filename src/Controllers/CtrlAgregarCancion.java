@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import Model.Cancion;
-
+import org.json.JSONObject;
 
 /**
  * Servlet implementation class CtrlAgregarCancion
@@ -66,23 +66,16 @@ public class CtrlAgregarCancion extends HttpServlet {
 		m_cancion.m_id_usuario = Integer.parseInt(uId);
 		
 		m_cancion.AgregarCancion();
-		/*
-		StringBuffer res = new StringBuffer();
-		res.append("{");
-	    res.append("'result':");
-	    res.append(result);
-	    res.append(",");
-	    res.append("'msg':");
-	    res.append(text);
-	    res.append("}");
-	    
-	    out.println(res.toString());*/
 		
-		String text = "<font color='black' size='4' >Registro exitoso!</font>";
+		//String text = "<font color='black' size='4' >Registro exitoso!</font>";
 		
-		out.println(text);
-	    
-        //out.close();
+		JSONObject json = new JSONObject();
+		json.put("result", 1);
+		String text = json.toString();
+		
+				
+		out.println(text);	    
+        
 	}
 
 }
