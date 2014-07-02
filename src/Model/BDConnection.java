@@ -13,7 +13,7 @@ public class BDConnection {
 		String dbDriver = "org.postgresql.Driver";
 		String url = "jdbc:postgresql://localhost:5432/EMUSICOOO";
 		String username= "postgres";
-		String password = "1234";
+		String password = "1234567";
 		try
 		{
 			Class.forName( dbDriver);

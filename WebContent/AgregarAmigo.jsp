@@ -48,6 +48,7 @@
                 
 				//make the AJAX request, dataType is set to json
                 //meaning we are expecting JSON data in response from the server
+                
                 $.ajax({
                     type: "POST",
                     url: "CtrlAgregarAmigo",
@@ -56,17 +57,7 @@
                     
                     //if received a response from the server
                     success: function( data, textStatus, jqXHR) {
-                        //our country code was correct so we have some information to display
-                         alert(data.msg);	
-                         alert(data.result);	
                         
-                        /*if(data.success){
-							alert(data.msg);							
-                         } 
-                         //display error message
-                         else {
-                             $("#ajaxResponse").html("<div><b>Country code in Invalid!</b></div>");
-                         }*/
                     },
                     
                     //If there was no resonse from the server
@@ -88,8 +79,7 @@
                     complete: function(jqXHR, textStatus){
                         //enable the button 
                         $('#btnRegistrarUsuario').attr("disabled", false);
-                    }
-          
+                    }          
                 });        	
                
 	               

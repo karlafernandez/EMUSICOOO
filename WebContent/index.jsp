@@ -28,14 +28,7 @@
 	        	//get the form data and then serialize that
                 dataString = $("#RegisterUserForm").serialize();
                 
-                //get the form data using another method 
-                //var name = $("input#name").val(); 
-                //var email = $("input#email").val(); 
-                //var pass = $("input#password").val();     
-                //dataString = "name=" + name;
-                
-				//make the AJAX request, dataType is set to json
-                //meaning we are expecting JSON data in response from the server
+               
                 $.ajax({
                     type: "POST",
                     url: "CtrlRegisterUser",
@@ -43,18 +36,13 @@
                     dataType: "json",
                     
                     //if received a response from the server
-                    success: function( data, textStatus, jqXHR) {
-                        //our country code was correct so we have some information to display
-                         alert(data.msg);	
-                         alert(data.result);	
-                        
-                        /*if(data.success){
-							alert(data.msg);							
-                         } 
-                         //display error message
+                    success: function( data, textStatus, jqXHR) {                                                
+                        if(data.result){							
+                        	$("#ajaxResponse").html("<div><b><font color='black' size='4' >El usuario se registro correctamente</font></b></div>");
+                         }                         
                          else {
-                             $("#ajaxResponse").html("<div><b>Country code in Invalid!</b></div>");
-                         }*/
+                             $("#ajaxResponse").html("<div><b><font color='red' size='4' >No se pudo registrar al usuario!</font></b></div>");
+                         }
                     },
                     
                     //If there was no resonse from the server

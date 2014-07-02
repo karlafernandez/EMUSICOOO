@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServletResponse;
 
 
 import Model.User;
+import org.json.JSONObject;
+
 
 /**
  * Servlet implementation class CtrlRegisterUser
@@ -43,28 +45,54 @@ public class CtrlRegisterUser extends HttpServlet {
 		
 		int result = m_user.RegisterUser(request.getParameter("name"), request.getParameter("email"), request.getParameter("password"));
 		String text;
+		
+		JSONObject json = new JSONObject();		
+				
 		if(result == 1){
-			text = "<font color='black' size='4' >El usuario se registro correctamente</font>";
+			json.put("result", 1);		
+			
 		}else{
-			text = "<font color='red' size='4' >El usuario ya existe</font>";
+			json.put("result", 0);			
 		}
 		
 		PrintWriter out = response.getWriter();
-		/*
-		StringBuffer res = new StringBuffer();
-		res.append("{");
-	    res.append("'result':");
-	    res.append(result);
-	    res.append(",");
-	    res.append("'msg':");
-	    res.append(text);
-	    res.append("}");
-	    
-	    out.println(res.toString());*/
+		
+		text = json.toString();
+		
+		System.out.println(text);
 		
 		out.println(text);
 	    
+		
+		
+		
         //out.close();
+		
+		
+		
+		/* otra manera de usar el JSON
+		 * 
+		 * 
+		Map<String, Long> map = new HashMap<String, Long>();
+        map.put("A", 10L);
+        map.put("B", 20L);
+        map.put("C", 30L);
+         
+        JSONObject json = new JSONObject();
+        json.accumulateAll(map);
+         
+        System.out.println(json.toString());
+ 
+         
+        List<String> list = new ArrayList<String>();
+        list.add("Sunday");
+        list.add("Monday");
+        list.add("Tuesday");
+         
+        json.accumulate("weekdays", list);
+        System.out.println(json.toString());
+         
+		 * */
         
 	}
 

@@ -167,5 +167,71 @@ public class Cancion extends BDHandler{
 		
 	}
 
+	
+	public void AgregarLogReproducion(int id_user, int id_can){
+		
+		try{
+			 //Vector<String> data = new  Vector<String>();
+			int result = -1 ;
+    		this.m_conn.setAutoCommit(false);
+    		this.m_proc = null;
+    		this.m_proc = m_conn.prepareCall("{ call fx_log_reproduccion (?,?,?) }");
+    		
+    		
+    		//seteamos los parametros, el primer parametro es po defecto el cursor
+    		this.m_proc.setInt(1, id_user);			
+			this.m_proc.setInt(2, id_can);
+			
+			this.m_proc.registerOutParameter(3, Types.INTEGER); //el parametro de salida
+			
+			this.m_proc.execute();
+			
+			result = this.m_proc.getInt(3);
+			
+    		    		
+    		this.m_conn.commit();
+			this.m_conn.setAutoCommit(true);
+    		
+    		this.m_proc.close();    		    		
+			
+		}catch (Exception e) {
+            System.err.println("El porque del cascar SQL: " + e.getMessage());
+            e.printStackTrace();
+        }		
+		
+	}
+	
+public void AgregarAColeccion(int id_user, int id_can){
+		
+		try{
+			 //Vector<String> data = new  Vector<String>();
+			int result = -1 ;
+    		this.m_conn.setAutoCommit(false);
+    		this.m_proc = null;
+    		this.m_proc = m_conn.prepareCall("{ call fx_agregar_a_coleccion (?,?,?) }");
+    		
+    		
+    		//seteamos los parametros, el primer parametro es po defecto el cursor
+    		this.m_proc.setInt(1, id_user);			
+			this.m_proc.setInt(2, id_can);
+			
+			this.m_proc.registerOutParameter(3, Types.INTEGER); //el parametro de salida
+			
+			this.m_proc.execute();
+			
+			result = this.m_proc.getInt(3);
+			
+    		    		
+    		this.m_conn.commit();
+			this.m_conn.setAutoCommit(true);
+    		
+    		this.m_proc.close();    		    		
+			
+		}catch (Exception e) {
+            System.err.println("El porque del cascar SQL: " + e.getMessage());
+            e.printStackTrace();
+        }		
+		
+	}
 
 }

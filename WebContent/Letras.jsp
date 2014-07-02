@@ -123,6 +123,7 @@
 				        <li class="current"><a href="CtrlVerLetra">Letras</a>
 				        </li>
 				        <li ><a href="Amigos.jsp">Amigos</a></li>
+				        <li><a href="faces/Favoritos.xhtml" target="_new">Mias</a></li>
 				    </ul>
 				    <div class="clear"></div>
 				</nav>
@@ -168,7 +169,7 @@
 			</form> -->
 <div style="position: relative; width: 100%; ">
 			<div style="position: absolute; left: 0; width: 65%; ">
-					<form id="CancionesForm" >	
+					<form id="CancionesForm">	
 						<table CELLSPACING="5" Width="700"> 
 						<th COLSPAN=4 BGCOLOR="#6D8FFF"> 
 							<font color='white' size='5' >Canciones EMUSICoOo</font>
@@ -190,23 +191,27 @@
 					    <%  for(int i=0; i< sz; i++) {
 					    		Cancion cancion = listacans.get(i);
 					    %>
-					    <form action = "CtrlDetalleCancion" method="get">	
-						    <tr>
-						    	<td WIDTH="200">
-							    	<font color='black' size='4' > <%=cancion.m_nombre%> </font>
-							    </td>
-						    	<td WIDTH="150">
-							    	<font color='black' size='4' > <%=cancion.m_artista %> </font>
-							    </td>
-							    <td WIDTH="100">
-									<font color='black' size='4' ><%=cancion.m_categoria %> </font>
-								</td>
-								<td WIDTH="50">
+					    <tr>
+					    	<td WIDTH="200">
+						    	<font color='black' size='4' > <%=cancion.m_nombre%> </font>
+						    </td>
+					    	<td WIDTH="150">
+						    	<font color='black' size='4' > <%=cancion.m_artista %> </font>
+						    </td>
+						    <td WIDTH="100">
+								<font color='black' size='4' ><%=cancion.m_categoria %> </font>
+							</td>
+							<td WIDTH="50">
+							
+							
+								<form  action = "CtrlDetalleCancion" method="get">
+							
 									<input type="hidden" id="id_can" name="id_can"  value="<%=cancion.m_identificador%>" >
 									<input type="submit" id="btnVerDetalleCancion" value="Detalles">
-								</td>
-							</tr>
-						</form>
+								</form>
+							
+							</td>
+						</tr>
 					    <% } %>
 					    </table>
 					</form> 

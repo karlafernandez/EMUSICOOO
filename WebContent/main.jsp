@@ -371,8 +371,15 @@
 				        <li class="current"><a href="main.jsp">Perfil</a></li>
 				        <li><a href="AgregarCancion.jsp">Agregar</a></li>
 				        <li class="sub-menu"><a href="CtrlVerLetra">Letras</a>
+				        	<ul>
+				                <li><a href="faces/Favoritos.xhtml"  target="_new" >Favoritas</a></li>
+				                </li>
+				                 <li><a href="faces/Coleccion.xhtml"  target="_new" >Coleccion</a></li>
+				                </li>
+				            </ul>
 				        </li>
 				        <li><a href="Amigos.jsp">Amigos</a></li>
+				        
 				    </ul>
 				    <div class="clear"></div>
 				</nav>

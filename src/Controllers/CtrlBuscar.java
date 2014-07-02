@@ -71,7 +71,8 @@ public class CtrlBuscar extends HttpServlet {
 			 + "<td>"
 			//text += "&nbsp;&nbsp;<a href='http://localhost:8080/Login/CtrlDetalleCancion?id_can="+m_buscar.m_data.elementAt(i).elementAt(0)+"'>Mas...</a>";
 			
-			+ "<form action='CtrlDetalleCancion' method='GET'> \n"
+			+ "<form action='CtrlDetalleCancion' method='post' target='_blank'> \n"
+			+ "<input type='hidden' name='accion' id='accion' value ='1'/> \n"   //
 			+ "<input type='hidden' name='id_can' id='id_can' value ='" + lista_canciones.elementAt(i).elementAt(0)+"'/> \n"
 			+ "<input  type='submit' value='Mas' /> \n"
 			+ "</form> \n"	

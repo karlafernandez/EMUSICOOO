@@ -36,7 +36,7 @@ public class BDHandler {
 	    	ResultSet rs;
 	    	
 	    	//String query = "select * from \"Cancion\" where let_can like '%vivir%'; ";
-	    	String query = "select * from \"Cancion\" where let_can ilike '%"+ cadena + "%'; ";
+	    	String query = "select * from \"Cancion\" where let_can ilike '%"+ cadena + "%' OR nom_can ilike '%"+ cadena + "%'; ";
 	    	rs = stmt.executeQuery(query);
 	    	m_result_metada = rs.getMetaData();
 	    	

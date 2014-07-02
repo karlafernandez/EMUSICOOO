@@ -10,9 +10,11 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import Model.Cancion;
 
+import org.json.JSONObject;
 /**
  * Servlet implementation class CtrlDetalleCancion
  */
@@ -39,48 +41,7 @@ public class CtrlDetalleCancion extends HttpServlet {
 		// TODO Auto-generated method stub
 		//int result = m_user.RegisterUser(request.getParameter("name"), request.getParameter("email"), request.getParameter("password"));
 		
-		m_cancion.ListarDetalleCancion(Integer.parseInt(request.getParameter("id_can")));
-		request.setAttribute("Cancion", m_cancion);		
 		
-		RequestDispatcher rd = request.getRequestDispatcher("Cancion.jsp");
-		rd.forward(request, response);
-		
-	    //RequestDispatcher rd = getServletContext()
-	    ///                           .getRequestDispatcher("/Cancion.jsp");
-	    //rd.forward(request, response);
-		
-		
-		/*Vector<String> data = m_cancion.ListarDetalleCancion(Integer.parseInt(request.getParameter("id_can")));
-		
-		String text;
-		
-		text = "<!DOCTYPE html><html><body bgcolor='#DBE9F2'>";
-		
-		
-		text += "<center><br><br>";
-		
-		if(data != null && data.size() > 1){
-			text += "<font color='black' size='6' >"+data.elementAt(0)+ " - " +data.elementAt(3) + "(" +data.elementAt(4)+ ")"+ "</font><br>";
-			
-			//text += "<object type='application/x-shockwave-flash' style='width:425px;height:350px' data='https://www.youtube.com/watch?v=lNLdTfwx5ZQ'><param name='movie' value='https://www.youtube.com/watch?v=lNLdTfwx5ZQ' /></object>";
-			text += "<iframe width='640' height='390' src='"+data.elementAt(2)+"' frameborder='0' ></iframe>";
-			
-			
-			text += "<br><br><font color='black' size='4' >"+data.elementAt(1).replace("\n", "<br>")+"</font>";
-		}
-		
-		
-		
-		text += "</center>";
-		
-		text += "</body></html>";
-		
-		
-		PrintWriter out = response.getWriter();
-		
-		
-		out.println(text);
-	    */
 		
 	}
 
@@ -89,6 +50,32 @@ public class CtrlDetalleCancion extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		
+		HttpSession session = request.getSession(true);
+		String uId = session.getAttribute("id_user").toString();
+		
+		if(request.getParameter("accion").equals("1")){	//se llama cuando quieres ver detalle de una cancion
+			
+			m_cancion.AgregarLogReproducion(Integer.parseInt(uId), Integer.parseInt(request.getParameter("id_can")));
+			
+			m_cancion.ListarDetalleCancion(Integer.parseInt(request.getParameter("id_can")));
+			request.setAttribute("Cancion", m_cancion);		
+			
+			RequestDispatcher rd = request.getRequestDispatcher("Cancion.jsp");
+			rd.forward(request, response);
+		}else if(request.getParameter("accion").equals("2")){ //se llama cunado se agregar cancniones a la coleccion
+			
+			//System.out.print("chamare");
+			m_cancion.AgregarAColeccion(Integer.parseInt(uId), Integer.parseInt(request.getParameter("id_can")));
+			
+			JSONObject json = new JSONObject();
+			json.put("result", 1);
+			String text = json.toString();
+			
+			PrintWriter out = response.getWriter();		
+			out.println(text);	    
+		}
+		
 	}
 
 }
