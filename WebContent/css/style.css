@@ -291,3 +291,46 @@ input:focus {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.order-table{   
+	border-collapse:collapse;
+}
+ 
+.order-table-header{
+	text-align:center;
+	background:none repeat scroll 0 0 #08088A;
+	border-bottom:1px solid #08088A;
+	padding:16px;
+}
+ 
+.order-table-odd-row{
+	text-align:center;
+	background:none repeat scroll 0 0 #E0ECF8;
+	border-top:1px solid #E0ECF8;
+	color: black;
+	padding:16px;
+	height: 30px;
+}
+ 
+.order-table-even-row{
+	text-align:center;
+	background:none repeat scroll 0 0 #CEE3F6;
+	border-top:1px solid #CEE3F6;
+	color: black;
+	padding:16px;
+	height: 30px;
+}
+

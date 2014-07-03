@@ -123,6 +123,7 @@
 				        <li class="current"><a href="CtrlVerLetra">Letras</a>
 				        </li>
 				        <li ><a href="Amigos.jsp">Amigos</a></li>
+				        <li><a href="faces/Favoritos.xhtml" target="_new">Mias</a></li>
 				    </ul>
 				    <div class="clear"></div>
 				</nav>

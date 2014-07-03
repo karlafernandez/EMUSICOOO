@@ -49,7 +49,8 @@ public class CtrlRegisterUser extends HttpServlet {
 		JSONObject json = new JSONObject();		
 				
 		if(result == 1){
-			json.put("result", 1);			
+			json.put("result", 1);		
+			
 		}else{
 			json.put("result", 0);			
 		}
@@ -57,6 +58,8 @@ public class CtrlRegisterUser extends HttpServlet {
 		PrintWriter out = response.getWriter();
 		
 		text = json.toString();
+		
+		System.out.println(text);
 		
 		out.println(text);
 	    
